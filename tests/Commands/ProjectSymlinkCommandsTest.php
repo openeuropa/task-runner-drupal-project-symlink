@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OpenEuropa\DrupalProjectSymlink\Tests\Commands;
 
+use Composer\Autoload\ClassLoader;
 use OpenEuropa\TaskRunner\Services\Composer;
 use OpenEuropa\TaskRunner\TaskRunner;
 use Symfony\Component\Console\Input\StringInput;
@@ -58,6 +61,18 @@ class ProjectSymlinkCommandsTest extends TestCase
 
         // Run command.
         $runner->run();
+
+        // Assert that links are created correctly.
+        foreach ($expectedSymlinks as $link => $target) {
+            $filepath = $this->getSandboxFilepath($link);
+            $this->assertFileExists($filepath);
+            $this->assertEquals($target, readlink($filepath));
+        }
+
+        // Assert that links that are not supposed to be create, are not.
+        foreach ($expectedMissingSymlinks as $link) {
+            $this->assertFileNotExists($this->getSandboxFilepath($link));
+        }
     }
 
     /**
@@ -65,7 +80,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      *
      * @return array
      */
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return Yaml::parse(file_get_contents(__DIR__.'/../fixtures/symlink-project.yml'));
     }
@@ -75,7 +90,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      *
      * @return string
      */
-    protected function getSandboxRoot()
+    protected function getSandboxRoot(): string
     {
         return __DIR__."/../sandbox";
     }
@@ -88,7 +103,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      *
      * @return string
      */
-    protected function getSandboxFilepath($name)
+    protected function getSandboxFilepath($name): string
     {
         return $this->getSandboxRoot().'/'.$name;
     }
@@ -98,7 +113,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      *
      * @return \Composer\Autoload\ClassLoader
      */
-    protected function getClassLoader()
+    protected function getClassLoader(): ClassLoader
     {
         return require __DIR__.'/../../vendor/autoload.php';
     }

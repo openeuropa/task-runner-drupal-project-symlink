@@ -7,11 +7,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "php": ">=7.2",
         "openeuropa/task-runner": "~1"
     },
     "require-dev": {
         "openeuropa/code-review": "~1",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "symfony/filesystem": "~3.4||~4"
     },
     "autoload": {
         "psr-4": {

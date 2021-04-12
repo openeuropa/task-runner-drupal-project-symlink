@@ -48,6 +48,7 @@ pipeline:
 
 matrix:
   IMAGE_PHP:
+  - fpfis/httpd-php-ci:7.2
   - fpfis/httpd-php-ci:7.3
   COMPOSER_BOUNDARY:
   - lowest
