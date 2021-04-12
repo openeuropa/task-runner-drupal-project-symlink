@@ -1,0 +1,21 @@
+- configuration:
+    drupal:
+      root: 'web'
+  project:
+    name: 'my_module'
+    type: 'drupal-module'
+    content:
+      directories:
+        - 'web'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_module.info.yml'
+        - 'my_module.module'
+  expected_symlinks:
+    web/modules/my_module/my_module.info.yml: '../../../my_module.info.yml'
+    web/modules/my_module/my_module.module: '../../../my_module.module'
+  expected_missing_symlinks:
+    - 'web/modules/my_module/.git'
+    - 'web/modules/my_module/vendor'
+    - 'web/modules/my_module/web'
