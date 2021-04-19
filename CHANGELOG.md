@@ -1,8 +1,16 @@
 # Change Log
 
+## [1.0.0-beta2](https://github.com/openeuropa/task-runner-drupal-project-symlink/tree/1.0.0-beta2) (2021-04-19)
+[Full Changelog](https://github.com/openeuropa/task-runner-drupal-project-symlink/compare/1.0.0-beta1...1.0.0-beta2)
+
+**Merged pull requests:**
+
+- EWPP-964: Update xdebug configuration and move components to custom folder. [\#3](https://github.com/openeuropa/task-runner-drupal-project-symlink/pull/3) ([imanoleguskiza](https://github.com/imanoleguskiza))
+
 ## [1.0.0-beta1](https://github.com/openeuropa/task-runner-drupal-project-symlink/tree/1.0.0-beta1) (2021-04-19)
 **Merged pull requests:**
 
+- Update CHANGELOG.md for release 1.0.0-beta1. [\#2](https://github.com/openeuropa/task-runner-drupal-project-symlink/pull/2) ([ademarco](https://github.com/ademarco))
 - EWPP-964: Create Task runner command to setup Drupal project local development [\#1](https://github.com/openeuropa/task-runner-drupal-project-symlink/pull/1) ([ademarco](https://github.com/ademarco))
 
 
