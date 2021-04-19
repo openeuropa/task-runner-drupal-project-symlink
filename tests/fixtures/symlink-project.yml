@@ -1,0 +1,63 @@
+- configuration:
+    drupal:
+      root: 'web'
+  project:
+    name: 'my_module'
+    type: 'drupal-module'
+    content:
+      directories:
+        - 'web'
+        - 'src'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_module.info.yml'
+        - 'my_module.module'
+  expected_symlinks:
+    web/modules/my_module/my_module.info.yml: '../../../my_module.info.yml'
+    web/modules/my_module/my_module.module: '../../../my_module.module'
+    web/modules/my_module/src: '../../../src'
+  expected_missing_symlinks:
+    - 'web/modules/my_module/.git'
+    - 'web/modules/my_module/vendor'
+    - 'web/modules/my_module/web'
+- configuration:
+    drupal:
+      root: 'build'
+  project:
+    name: 'my_theme'
+    type: 'drupal-theme'
+    content:
+      directories:
+        - 'build'
+        - 'templates'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_theme.info.yml'
+  expected_symlinks:
+    build/themes/my_theme/my_theme.info.yml: '../../../my_theme.info.yml'
+    build/themes/my_theme/templates: '../../../templates'
+  expected_missing_symlinks:
+    - 'web/themes/my_theme/.git'
+    - 'web/themes/my_theme/vendor'
+    - 'web/themes/my_theme/build'
+- configuration:
+    drupal:
+      root: 'build'
+  project:
+    name: 'my_profile'
+    type: 'drupal-profile'
+    content:
+      directories:
+        - 'build'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_profile.info.yml'
+  expected_symlinks:
+    build/profiles/my_profile/my_profile.info.yml: '../../../my_profile.info.yml'
+  expected_missing_symlinks:
+    - 'web/profiles/my_profile/.git'
+    - 'web/profiles/my_profile/vendor'
+    - 'web/profiles/my_profile/build'
