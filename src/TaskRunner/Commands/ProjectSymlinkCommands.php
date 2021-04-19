@@ -65,9 +65,9 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
     protected function getProjectTypeDirectory(string $projectType): string
     {
         $mapping = [
-            'drupal-module' => 'modules',
-            'drupal-theme' => 'themes',
-            'drupal-profile' => 'profiles',
+            'drupal-module' => 'modules/custom',
+            'drupal-theme' => 'themes/custom',
+            'drupal-profile' => 'profiles/custom',
         ];
         if (!array_key_exists($projectType, $mapping)) {
             throw new \RuntimeException("Missing or not supported Drupal project type in composer.json. Supported types: 'drupal-module', 'drupal-theme' and 'drupal-profile'.");

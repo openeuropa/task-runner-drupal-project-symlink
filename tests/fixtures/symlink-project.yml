@@ -14,13 +14,13 @@
         - 'my_module.info.yml'
         - 'my_module.module'
   expected_symlinks:
-    web/modules/my_module/my_module.info.yml: '../../../my_module.info.yml'
-    web/modules/my_module/my_module.module: '../../../my_module.module'
-    web/modules/my_module/src: '../../../src'
+    web/modules/custom/my_module/my_module.info.yml: '../../../../my_module.info.yml'
+    web/modules/custom/my_module/my_module.module: '../../../../my_module.module'
+    web/modules/custom/my_module/src: '../../../../src'
   expected_missing_symlinks:
-    - 'web/modules/my_module/.git'
-    - 'web/modules/my_module/vendor'
-    - 'web/modules/my_module/web'
+    - 'web/modules/custom/my_module/.git'
+    - 'web/modules/custom/my_module/vendor'
+    - 'web/modules/custom/my_module/web'
 - configuration:
     drupal:
       root: 'build'
@@ -36,12 +36,12 @@
       files:
         - 'my_theme.info.yml'
   expected_symlinks:
-    build/themes/my_theme/my_theme.info.yml: '../../../my_theme.info.yml'
-    build/themes/my_theme/templates: '../../../templates'
+    build/themes/custom/my_theme/my_theme.info.yml: '../../../../my_theme.info.yml'
+    build/themes/custom/my_theme/templates: '../../../../templates'
   expected_missing_symlinks:
-    - 'web/themes/my_theme/.git'
-    - 'web/themes/my_theme/vendor'
-    - 'web/themes/my_theme/build'
+    - 'web/themes/custom/my_theme/.git'
+    - 'web/themes/custom/my_theme/vendor'
+    - 'web/themes/custom/my_theme/build'
 - configuration:
     drupal:
       root: 'build'
@@ -56,8 +56,8 @@
       files:
         - 'my_profile.info.yml'
   expected_symlinks:
-    build/profiles/my_profile/my_profile.info.yml: '../../../my_profile.info.yml'
+    build/profiles/custom/my_profile/my_profile.info.yml: '../../../../my_profile.info.yml'
   expected_missing_symlinks:
-    - 'web/profiles/my_profile/.git'
-    - 'web/profiles/my_profile/vendor'
-    - 'web/profiles/my_profile/build'
+    - 'web/profiles/custom/my_profile/.git'
+    - 'web/profiles/custom/my_profile/vendor'
+    - 'web/profiles/custom/my_profile/build'
