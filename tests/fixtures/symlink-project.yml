@@ -23,6 +23,52 @@
     - 'web/modules/custom/my_module/web'
 - configuration:
     drupal:
+      root: 'web'
+  project:
+    name: 'my-module'
+    type: 'drupal-module'
+    content:
+      directories:
+        - 'web'
+        - 'src'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_module.info.yml'
+        - 'my_module.module'
+  expected_symlinks:
+    web/modules/custom/my-module/my_module.info.yml: '../../../../my_module.info.yml'
+    web/modules/custom/my-module/my_module.module: '../../../../my_module.module'
+    web/modules/custom/my-module/src: '../../../../src'
+  expected_missing_symlinks:
+    - 'web/modules/custom/my-module/.git'
+    - 'web/modules/custom/my-module/vendor'
+    - 'web/modules/custom/my-module/web'
+- configuration:
+    drupal:
+      root: 'web'
+  project:
+    name: 'my.module'
+    type: 'drupal-module'
+    content:
+      directories:
+        - 'web'
+        - 'src'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_module.info.yml'
+        - 'my_module.module'
+  expected_symlinks:
+    web/modules/custom/my.module/my_module.info.yml: '../../../../my_module.info.yml'
+    web/modules/custom/my.module/my_module.module: '../../../../my_module.module'
+    web/modules/custom/my.module/src: '../../../../src'
+  expected_missing_symlinks:
+    - 'web/modules/custom/my.module/.git'
+    - 'web/modules/custom/my.module/vendor'
+    - 'web/modules/custom/my.module/web'
+- configuration:
+    drupal:
       root: 'build'
   project:
     name: 'my_theme'

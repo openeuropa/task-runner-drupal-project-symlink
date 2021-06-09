@@ -45,7 +45,7 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
 
         // When linking project files, step back from the current target as many
         // times as the project directory's depth.
-        $steps = preg_replace('/\w+/', '..', $projectDirectory);
+        $steps = preg_replace('/[\w\-\_\.]+/', '..', $projectDirectory);
         foreach ($this->getLinkableFiles($workingDir) as $file) {
             // Link source with target.
             $tasks[] = $this->taskFilesystemStack()->symlink($steps.DIRECTORY_SEPARATOR.$file, $projectDirectory.DIRECTORY_SEPARATOR.$file);
