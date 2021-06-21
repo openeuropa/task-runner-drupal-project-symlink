@@ -1,4 +1,12 @@
-# Change Log
+# Changelog
+
+## [1.0.0-beta3](https://github.com/openeuropa/task-runner-drupal-project-symlink/tree/1.0.0-beta3) (2021-06-21)
+
+[Full Changelog](https://github.com/openeuropa/task-runner-drupal-project-symlink/compare/1.0.0-beta2...1.0.0-beta3)
+
+**Merged pull requests:**
+
+- EWPP-1192: Fix when project name has dash and dot. [\#5](https://github.com/openeuropa/task-runner-drupal-project-symlink/pull/5) ([nagyad](https://github.com/nagyad))
 
 ## [1.0.0-beta2](https://github.com/openeuropa/task-runner-drupal-project-symlink/tree/1.0.0-beta2) (2021-04-19)
 [Full Changelog](https://github.com/openeuropa/task-runner-drupal-project-symlink/compare/1.0.0-beta1...1.0.0-beta2)
