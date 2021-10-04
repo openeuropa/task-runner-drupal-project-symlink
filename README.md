@@ -25,6 +25,15 @@ Make sure to always run the following command, after adding/removing files or di
 
     ./vendor/bin/run drupal:symlink-project
 
+You can also prevent files and/or directories from being symlinked by using the following configuration
+in your `runner.yml` file, as showed in the example below:
+
+    drupal_project_symlink:
+      ignore:
+        - directory-to-ignore
+        - file-to-ignore.txt
+
+
 ## Step debugging
 
 To enable step debugging from the command line, pass the `XDEBUG_SESSION` environment variable with any value to
