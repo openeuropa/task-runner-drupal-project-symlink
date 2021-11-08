@@ -17,6 +17,14 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
     use ComposerAwareTrait;
 
     /**
+     * {@inheritdoc}
+     */
+    public function getConfigurationFile()
+    {
+        return __DIR__.'/../../../config/drupal-project-symlink.yml';
+    }
+
+    /**
      * Symlink current project within a target site build.
      *
      * @return \Robo\Collection\CollectionBuilder
@@ -87,13 +95,13 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
      */
     protected function getLinkableFiles(string $directory): array
     {
-        $ignore = [
+        $ignore = array_merge([
             '.',
             '..',
             '.git',
             'vendor',
             $this->getConfig()->get('drupal.root'),
-        ];
+        ], $this->getConfig()->get('drupal_project_symlink.ignore'));
         $list = scandir($directory);
 
         return array_diff($list, $ignore);

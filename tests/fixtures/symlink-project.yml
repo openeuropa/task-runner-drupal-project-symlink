@@ -85,9 +85,9 @@
     build/themes/custom/my_theme/my_theme.info.yml: '../../../../my_theme.info.yml'
     build/themes/custom/my_theme/templates: '../../../../templates'
   expected_missing_symlinks:
-    - 'web/themes/custom/my_theme/.git'
-    - 'web/themes/custom/my_theme/vendor'
-    - 'web/themes/custom/my_theme/build'
+    - 'build/themes/custom/my_theme/.git'
+    - 'build/themes/custom/my_theme/vendor'
+    - 'build/themes/custom/my_theme/build'
 - configuration:
     drupal:
       root: 'build'
@@ -104,6 +104,30 @@
   expected_symlinks:
     build/profiles/custom/my_profile/my_profile.info.yml: '../../../../my_profile.info.yml'
   expected_missing_symlinks:
-    - 'web/profiles/custom/my_profile/.git'
-    - 'web/profiles/custom/my_profile/vendor'
-    - 'web/profiles/custom/my_profile/build'
+    - 'build/profiles/custom/my_profile/.git'
+    - 'build/profiles/custom/my_profile/vendor'
+    - 'build/profiles/custom/my_profile/build'
+- configuration:
+    drupal_project_symlink:
+      ignore:
+        - 'ignore-this'
+    drupal:
+      root: 'build'
+  project:
+    name: 'my_profile'
+    type: 'drupal-profile'
+    content:
+      directories:
+        - 'ignore-this'
+        - 'build'
+        - 'vendor'
+        - '.git'
+      files:
+        - 'my_profile.info.yml'
+  expected_symlinks:
+    build/profiles/custom/my_profile/my_profile.info.yml: '../../../../my_profile.info.yml'
+  expected_missing_symlinks:
+    - 'build/profiles/custom/my_profile/.git'
+    - 'build/profiles/custom/my_profile/vendor'
+    - 'build/profiles/custom/my_profile/build'
+    - 'build/profiles/custom/my_profile/ignore-this'
