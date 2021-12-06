@@ -1,8 +1,8 @@
 # Changelog
 
-## [1.0.0-beta3](https://github.com/openeuropa/task-runner-drupal-project-symlink/tree/1.0.0-beta3) (2021-12-06)
+## [1.0.0-beta4](https://github.com/openeuropa/task-runner-drupal-project-symlink/tree/1.0.0-beta4) (2021-12-06)
 
-[Full Changelog](https://github.com/openeuropa/task-runner-drupal-project-symlink/compare/1.0.0-beta3...1.0.0-beta3)
+[Full Changelog](https://github.com/openeuropa/task-runner-drupal-project-symlink/compare/1.0.0-beta3...1.0.0-beta4)
 
 **Merged pull requests:**
 
