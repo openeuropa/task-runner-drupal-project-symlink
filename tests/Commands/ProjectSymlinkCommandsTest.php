@@ -57,7 +57,7 @@ class ProjectSymlinkCommandsTest extends TestCase
         $mock = $this->createMock(Composer::class);
         $mock->method('getProject')->willReturn($project['name']);
         $mock->method('getType')->willReturn($project['type']);
-        $runner->getContainer()->share('task_runner.composer', $mock);
+        $runner->getContainer()->extend('task_runner.composer')->setConcrete($mock);
 
         // Run command.
         $runner->run();
@@ -71,7 +71,7 @@ class ProjectSymlinkCommandsTest extends TestCase
 
         // Assert that links that are not supposed to be create, are not.
         foreach ($expectedMissingSymlinks as $link) {
-            $this->assertFileNotExists($this->getSandboxFilepath($link));
+            $this->assertFileDoesNotExist($this->getSandboxFilepath($link));
         }
     }
 
