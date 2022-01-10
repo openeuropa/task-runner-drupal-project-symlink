@@ -8,14 +8,8 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.4",
-        "openeuropa/task-runner": "dev-EWPP-1846"
+        "openeuropa/task-runner": "^2.0"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/yenyasinn/robo-config"
-        }
-    ],
     "require-dev": {
         "openeuropa/code-review": "^2.0",
         "phpunit/phpunit": "^9.4",
@@ -36,6 +30,10 @@
         "composer-exit-on-patch-failure": true
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpro/grumphp": true,
+            "cweagans/composer-patches": true
+        }
     }
 }
