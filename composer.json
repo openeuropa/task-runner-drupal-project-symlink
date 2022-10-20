@@ -8,7 +8,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.4",
-        "openeuropa/task-runner": "^2.0"
+        "openeuropa/task-runner": "dev-OEL-2096"
     },
     "require-dev": {
         "openeuropa/code-review": "^2.0",
@@ -33,7 +33,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "phpro/grumphp": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }
