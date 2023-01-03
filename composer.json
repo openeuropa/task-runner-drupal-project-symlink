@@ -11,7 +11,7 @@
         "openeuropa/task-runner": "2.x-dev"
     },
     "require-dev": {
-        "openeuropa/code-review": "2.x-dev",
+        "openeuropa/code-review": "^2.0.0-alpha6",
         "phpunit/phpunit": "^9.4"
     },
     "autoload": {
