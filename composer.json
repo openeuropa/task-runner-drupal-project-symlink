@@ -30,16 +30,10 @@
             "OpenEuropa\\DrupalProjectSymlink\\Tests\\": "./tests/"
         }
     },
-    "extra": {
-        "enable-patching": true,
-        "composer-exit-on-patch-failure": true
-    },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "phpro/grumphp": true,
-            "cweagans/composer-patches": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "phpro/grumphp-shim": true
         }
     }
 }
