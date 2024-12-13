@@ -8,7 +8,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",
-        "openeuropa/task-runner": "2.x-dev"
+        "openeuropa/task-runner": "^2.0.0-alpha5"
     },
     "require-dev": {
         "openeuropa/code-review-library": "^1.0.0-alpha1",
