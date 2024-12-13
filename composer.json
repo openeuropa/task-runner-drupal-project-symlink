@@ -11,9 +11,15 @@
         "openeuropa/task-runner": "2.x-dev"
     },
     "require-dev": {
-        "openeuropa/code-review": "^2.0.0-alpha6",
+        "openeuropa/code-review-library": "^1.0.0-alpha1",
         "phpunit/phpunit": "^9.4"
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/openeuropa/code-review-library.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "OpenEuropa\\DrupalProjectSymlink\\": "./src/"

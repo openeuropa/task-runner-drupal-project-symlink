@@ -18,7 +18,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ProjectSymlinkCommandsTest extends TestCase
 {
-
     /**
      * Test project symlink command.
      *
@@ -39,17 +38,17 @@ class ProjectSymlinkCommandsTest extends TestCase
         $fs = new Filesystem();
         $fs->remove($this->getSandboxRoot());
         foreach ($project['content']['directories'] as $name) {
-            $fs->mkdir($this->getSandboxRoot().'/'.$name);
+            $fs->mkdir($this->getSandboxRoot() . '/' . $name);
         }
         foreach ($project['content']['files'] as $name) {
-            $fs->touch($this->getSandboxRoot().'/'.$name);
+            $fs->touch($this->getSandboxRoot() . '/' . $name);
         }
 
         // Create test task runner configuration file.
         $configFile = $this->getSandboxFilepath('runner.yml');
         file_put_contents($configFile, Yaml::dump($configuration));
 
-        $input = new StringInput("drupal:symlink-project --working-dir=".$this->getSandboxRoot());
+        $input = new StringInput("drupal:symlink-project --working-dir=" . $this->getSandboxRoot());
         $output = new BufferedOutput();
         $runner = new TaskRunner($input, $output, $this->getClassLoader());
 
@@ -82,7 +81,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      */
     public function dataProvider(): array
     {
-        return Yaml::parse(file_get_contents(__DIR__.'/../fixtures/symlink-project.yml'));
+        return Yaml::parse(file_get_contents(__DIR__ . '/../fixtures/symlink-project.yml'));
     }
 
     /**
@@ -92,7 +91,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      */
     protected function getSandboxRoot(): string
     {
-        return __DIR__."/../sandbox";
+        return __DIR__ . "/../sandbox";
     }
 
     /**
@@ -105,7 +104,7 @@ class ProjectSymlinkCommandsTest extends TestCase
      */
     protected function getSandboxFilepath($name): string
     {
-        return $this->getSandboxRoot().'/'.$name;
+        return $this->getSandboxRoot() . '/' . $name;
     }
 
     /**
@@ -115,6 +114,6 @@ class ProjectSymlinkCommandsTest extends TestCase
      */
     protected function getClassLoader(): ClassLoader
     {
-        return require __DIR__.'/../../vendor/autoload.php';
+        return require __DIR__ . '/../../vendor/autoload.php';
     }
 }
