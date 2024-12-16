@@ -7,13 +7,19 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.0",
-        "openeuropa/task-runner": "2.x-dev"
+        "php": ">=8.1",
+        "openeuropa/task-runner": "^2.0.0-alpha5"
     },
     "require-dev": {
-        "openeuropa/code-review": "^2.0.0-alpha6",
-        "phpunit/phpunit": "^9.4"
+        "openeuropa/code-review-library": "^1.0.0-alpha1",
+        "phpunit/phpunit": "^9.5"
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/openeuropa/code-review-library.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "OpenEuropa\\DrupalProjectSymlink\\": "./src/"
@@ -24,16 +30,10 @@
             "OpenEuropa\\DrupalProjectSymlink\\Tests\\": "./tests/"
         }
     },
-    "extra": {
-        "enable-patching": true,
-        "composer-exit-on-patch-failure": true
-    },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "phpro/grumphp": true,
-            "cweagans/composer-patches": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "phpro/grumphp-shim": true
         }
     }
 }

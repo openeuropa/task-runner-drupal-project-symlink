@@ -21,7 +21,7 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
      */
     public function getConfigurationFile()
     {
-        return __DIR__.'/../../../config/drupal-project-symlink.yml';
+        return __DIR__ . '/../../../config/drupal-project-symlink.yml';
     }
 
     /**
@@ -43,7 +43,7 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
         $drupalRoot = $this->getConfig()->get('drupal.root');
         $projectType = $this->composer->getType();
         $projectTypeDirectory = $this->getProjectTypeDirectory($projectType);
-        $projectDirectory = $drupalRoot.DIRECTORY_SEPARATOR.$projectTypeDirectory.DIRECTORY_SEPARATOR.$this->composer->getProject();
+        $projectDirectory = $drupalRoot . DIRECTORY_SEPARATOR . $projectTypeDirectory . DIRECTORY_SEPARATOR . $this->composer->getProject();
 
         // Recreate target project directory.
         $tasks = [
@@ -56,7 +56,7 @@ class ProjectSymlinkCommands extends AbstractCommands implements ComposerAwareIn
         $steps = preg_replace('/[\w\-\_\.]+/', '..', $projectDirectory);
         foreach ($this->getLinkableFiles($workingDir) as $file) {
             // Link source with target.
-            $tasks[] = $this->taskFilesystemStack()->symlink($steps.DIRECTORY_SEPARATOR.$file, $projectDirectory.DIRECTORY_SEPARATOR.$file);
+            $tasks[] = $this->taskFilesystemStack()->symlink($steps . DIRECTORY_SEPARATOR . $file, $projectDirectory . DIRECTORY_SEPARATOR . $file);
         }
 
         return $this->collectionBuilder()->addTaskList($tasks);
